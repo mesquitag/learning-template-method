@@ -21,57 +21,44 @@ import br.com.senai.eugenio.modelo.Dados;
 public class PersistenciaDosDados {
 
 	public static List<Dados> importaDadosParaList(String url) throws FileNotFoundException, IOException {
-		List<Dados> listaDePilotos = new LinkedList<>();
-
+	
+		List<Dados> listaDeAlunos = new LinkedList<>();
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(url)))) {
-
-			String s = br.readLine();
+				String s = br.readLine();
 
 			while (s != null) {
-				Dados dadosDePiloto = new Dados();
-
-				String registro[] = s.split(",");
-				dadosDePiloto.setCodigo(Integer.parseInt(registro[0]));
-				dadosDePiloto.setNome(registro[1]);
-				dadosDePiloto.setPais(registro[2]);
-				dadosDePiloto.setIdade(Integer.parseInt(registro[3]));
-				dadosDePiloto.setEquipe(registro[4]);
-				dadosDePiloto.setMotor(registro[5]);
-				dadosDePiloto.setPontos(Integer.parseInt(registro[6]));
-
-				listaDePilotos.add(dadosDePiloto);
+				Dados dadosDeAluno= new Dados();
+				String registro[] = s.split(";");
+				dadosDeAluno.setNumeroMatricula(Integer.parseInt(registro[0]));
+				dadosDeAluno.setNome(registro[1]);
+				listaDeAlunos.add(dadosDeAluno);
 				s = br.readLine();
 			}
 		}
 
-		return listaDePilotos;
+		return listaDeAlunos;
 	}
 
 	public static List<Dados> importaDadosParaArrayList(String url) throws FileNotFoundException, IOException {
-		List<Dados> listaDePilotos = new ArrayList<>();
+		List<Dados> listaDeAlunos = new ArrayList<>();
 
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(url)))) {
 
 			String s = br.readLine();
 
 			while (s != null) {
-				Dados dadosDePiloto = new Dados();
+				Dados dadosDeAluno = new Dados();
 
-				String registro[] = s.split(",");
-				dadosDePiloto.setCodigo(Integer.parseInt(registro[0]));
-				dadosDePiloto.setNome(registro[1]);
-				dadosDePiloto.setPais(registro[2]);
-				dadosDePiloto.setIdade(Integer.parseInt(registro[3]));
-				dadosDePiloto.setEquipe(registro[4]);
-				dadosDePiloto.setMotor(registro[5]);
-				dadosDePiloto.setPontos(Integer.parseInt(registro[6]));
+				String registro[] = s.split(";");
+				dadosDeAluno.setNumeroMatricula(Integer.parseInt(registro[0]));
+				dadosDeAluno.setNome(registro[1]);
 
-				listaDePilotos.add(dadosDePiloto);
+				listaDeAlunos.add(dadosDeAluno);
 				s = br.readLine();
 			}
 		}
 
-		return listaDePilotos;
+		return listaDeAlunos;
 	}
 
 	public static List<Dados> importaDadosParaStack(String url) throws FileNotFoundException, IOException {
@@ -81,18 +68,13 @@ public class PersistenciaDosDados {
 			String s = br.readLine();
 
 			while (s != null) {
-				Dados dadosDePiloto = new Dados();
+				Dados dadosDeAluno = new Dados();
 
-				String registro[] = s.split(",");
-				dadosDePiloto.setCodigo(Integer.parseInt(registro[0]));
-				dadosDePiloto.setNome(registro[1]);
-				dadosDePiloto.setPais(registro[2]);
-				dadosDePiloto.setIdade(Integer.parseInt(registro[3]));
-				dadosDePiloto.setEquipe(registro[4]);
-				dadosDePiloto.setMotor(registro[5]);
-				dadosDePiloto.setPontos(Integer.parseInt(registro[6]));
+				String registro[] = s.split(";");
+				dadosDeAluno.setNumeroMatricula(Integer.parseInt(registro[0]));
+				dadosDeAluno.setNome(registro[1]);
 
-				pilhaDePilotos.add(dadosDePiloto);
+				pilhaDePilotos.add(dadosDeAluno);
 				s = br.readLine();
 			}
 		}
@@ -100,82 +82,67 @@ public class PersistenciaDosDados {
 	}
 
 	public static Queue<Dados> importaDadosParaQueue(String url) throws FileNotFoundException, IOException {
-		Queue<Dados> filaDePilotos = new LinkedList<>();
+		Queue<Dados> filaDeAlunos = new LinkedList<>();
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(url)))) {
 
 			String s = br.readLine();
 
 			while (s != null) {
-				Dados dadosDePiloto = new Dados();
+				Dados dadosDeAluno = new Dados();
 
-				String registro[] = s.split(",");
-				dadosDePiloto.setCodigo(Integer.parseInt(registro[0]));
-				dadosDePiloto.setNome(registro[1]);
-				dadosDePiloto.setPais(registro[2]);
-				dadosDePiloto.setIdade(Integer.parseInt(registro[3]));
-				dadosDePiloto.setEquipe(registro[4]);
-				dadosDePiloto.setMotor(registro[5]);
-				dadosDePiloto.setPontos(Integer.parseInt(registro[6]));
+				String registro[] = s.split(";");
+				dadosDeAluno.setNumeroMatricula(Integer.parseInt(registro[0]));
+				dadosDeAluno.setNome(registro[1]);
 
-				filaDePilotos.add(dadosDePiloto);
+				filaDeAlunos.add(dadosDeAluno);
 				s = br.readLine();
 			}
 		}
 
-		return filaDePilotos;
+		return filaDeAlunos;
 	}
 
 	public static Set<Dados> importaDadosParaSet(String url) throws FileNotFoundException, IOException {
-		Set<Dados> conjuntoDePilotos = new HashSet<>();
+		Set<Dados> conjuntoDeAlunos = new HashSet<>();
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(url)))) {
 
 			String s = br.readLine();
 
 			while (s != null) {
-				Dados dadosDePiloto = new Dados();
+				Dados dadosDeAluno = new Dados();
 
-				String registro[] = s.split(",");
-				dadosDePiloto.setCodigo(Integer.parseInt(registro[0]));
-				dadosDePiloto.setNome(registro[1]);
-				dadosDePiloto.setPais(registro[2]);
-				dadosDePiloto.setIdade(Integer.parseInt(registro[3]));
-				dadosDePiloto.setEquipe(registro[4]);
-				dadosDePiloto.setMotor(registro[5]);
-				dadosDePiloto.setPontos(Integer.parseInt(registro[6]));
+				String registro[] = s.split(";");
+				dadosDeAluno.setNumeroMatricula(Integer.parseInt(registro[0]));
+				dadosDeAluno.setNome(registro[1]);
 
-				conjuntoDePilotos.add(dadosDePiloto);
+				conjuntoDeAlunos.add(dadosDeAluno);
 				s = br.readLine();
 			}
 		}
 
-		return conjuntoDePilotos;
+		return conjuntoDeAlunos;
 	}
 
 	public static Map<Integer, Dados> importaDadosParaMap(String url) throws FileNotFoundException, IOException {
-		Map<Integer, Dados> listaDePilotos = new Hashtable<>();
+		Map<Integer, Dados> listaDeAlunos = new Hashtable<>();
 
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(url)))) {
 
 			String s = br.readLine();
 
 			while (s != null) {
-				Dados dadosDePiloto = new Dados();
+				Dados dadosDeAluno = new Dados();
 
-				String registro[] = s.split(",");
-				dadosDePiloto.setCodigo(Integer.parseInt(registro[0]));
-				dadosDePiloto.setNome(registro[1]);
-				dadosDePiloto.setPais(registro[2]);
-				dadosDePiloto.setIdade(Integer.parseInt(registro[3]));
-				dadosDePiloto.setEquipe(registro[4]);
-				dadosDePiloto.setMotor(registro[5]);
-				dadosDePiloto.setPontos(Integer.parseInt(registro[6]));
+				String registro[] = s.split(";");
+				dadosDeAluno.setNumeroMatricula(Integer.parseInt(registro[0]));
+				dadosDeAluno.setNome(registro[1]);
 
-				listaDePilotos.put(dadosDePiloto.getCodigo(), dadosDePiloto);
+				listaDeAlunos.put(dadosDeAluno.getNumeroMatricula(), dadosDeAluno);
 				s = br.readLine();
 			}
 		}
 
-		return listaDePilotos;
+		return listaDeAlunos;
 	}
 
 }
